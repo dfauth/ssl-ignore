@@ -218,10 +218,14 @@ public class SslUtil {
     public static TrustManager[] getApproveAllTrustManagers() {
         return new X509TrustManager[]{new X509TrustManager() {
             @Override
-            public void checkClientTrusted(X509Certificate[] x509Certificates, String s){}
+            public void checkClientTrusted(X509Certificate[] x509Certificates, String s){
+                logger.info("checkClientTrusted: "+x509Certificates+" s: "+s);
+            }
 
             @Override
-            public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {}
+            public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
+                logger.info("checkServerTrusted: "+x509Certificates+" s: "+s);
+            }
 
             @Override
             public X509Certificate[] getAcceptedIssuers() {
