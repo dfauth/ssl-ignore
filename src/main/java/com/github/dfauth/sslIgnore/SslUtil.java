@@ -20,6 +20,7 @@ public class SslUtil {
             SSLContext ctx = SSLContext.getInstance(protocol);
             ctx.init(keyManagers, trustManagers, new SecureRandom());
             SSLContext.setDefault(ctx);
+            System.out.println("set default context: "+ctx);
         } catch (NoSuchAlgorithmException e) {
             logger.info(e.getMessage(), e);
             throw new RuntimeException(e);
